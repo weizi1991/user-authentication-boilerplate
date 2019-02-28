@@ -21,3 +21,4 @@ accounts-password
 session
 momentjs:moment
 fourseven:scss
+meteortesting:mocha
