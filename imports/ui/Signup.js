@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { Accounts } from 'meteor/accounts-base';
-
-export default class Signup extends Component {
+import { withTracker } from 'meteor/react-meteor-data';
+import PropTypes from 'prop-types';
+export class Signup extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -44,3 +45,12 @@ export default class Signup extends Component {
         );
     }
 }
+Signup.propTypes = {
+    createUser: PropTypes.func.isRequired
+}
+
+export default withTracker(()=> {
+    return {
+        createUser: Accounts.createUser
+    }
+})(Signup);
